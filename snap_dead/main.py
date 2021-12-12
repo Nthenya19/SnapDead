@@ -9,7 +9,8 @@ while True:
     faces = cascade.detectMultiScale(gray_scale)
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        frame=cvzone.overlayPNG(frame, overlay)
+        overlay_resize = cv2.resize(overlay, (w, h))
+        frame=cvzone.overlayPNG(frame, overlay_resize [x, y])
     cv2.imshow("Snap Dude", frame)
     if cv2.waitkey(10) == ord("q"):
         break
